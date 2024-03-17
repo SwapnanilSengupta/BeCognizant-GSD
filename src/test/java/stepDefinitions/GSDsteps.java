@@ -80,7 +80,7 @@ public class GSDsteps {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot,
-				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD3\\ScreenShots\\Profile.png"));
+				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD\\ScreenShots\\Profile.png"));
 		driver.navigate().refresh();
 		Thread.sleep(2000);
 	}
@@ -113,7 +113,7 @@ public class GSDsteps {
 	}
 
 	@Then("I switch to GSD frame")
-	public void switchingFrame() {
+	public void switchingFrame() throws InterruptedException {
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		driver.switchTo().frame("appFrame");
@@ -142,18 +142,19 @@ public class GSDsteps {
 	}
 
 	@Then("I print the support options for India GSD")
-	public void printIndiaGSDSupport() throws IOException {
+	public void printIndiaGSDSupport() throws IOException, InterruptedException {
 
 		System.out.println("\n---All the Support Present in India's GSD---");
 		String x = oc.get_All_Services();
 		String[] supportarray = x.split("\n");
 		System.out.println(x);
+		Thread.sleep(2000);
 		for (int i = 0; i < supportarray.length; i++) {
 			supportList.add(supportarray[i]);
 		}
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot,
-				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD3\\ScreenShots\\IndiaGSd.png"));
+				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD\\ScreenShots\\IndiaGSd.png"));
 
 	}
 
@@ -181,7 +182,7 @@ public class GSDsteps {
 		}
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot,
-				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD3\\ScreenShots\\FirstCountry.png"));
+				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD\\ScreenShots\\FirstCountry.png"));
 
 	}
 
@@ -209,7 +210,7 @@ public class GSDsteps {
 		}
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshot,
-				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD3\\ScreenShots\\SecondCountry.png"));
+				new File("C:\\Users\\2310300\\eclipse-workspace\\Cognizant_CAS_GSD\\ScreenShots\\SecondCountry.png"));
 
 		ExcelReportGenerator excelReportGenerator = new ExcelReportGenerator();
 
